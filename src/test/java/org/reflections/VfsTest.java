@@ -139,7 +139,7 @@ public class VfsTest {
 
         try {
             Vfs.Dir dir = Vfs.fromURL(new URL(format("file:{0}", dirWithJarInName)));
-
+            dirWithJarInName = dirWithJarInName.replace("\\", "/");
             assertEquals(dirWithJarInName, dir.getPath());
             assertEquals(SystemDir.class, dir.getClass());
         } finally {
