@@ -141,6 +141,7 @@ public class VfsTest {
             Vfs.Dir dir = Vfs.fromURL(new URL(format("file:{0}", dirWithJarInName)));
             String dir_path = dir.getPath();
             dir_path = dir_path.replace("\\", "/");
+            dirWithJarInName = dirWithJarInName.replace("\\", "/");
             assertEquals(dirWithJarInName, dir_path);
             assertEquals(SystemDir.class, dir.getClass());
         } finally {
@@ -161,8 +162,12 @@ public class VfsTest {
         
         Vfs.Dir dir = Vfs.fromURL(new URL(directoryInJarPath));
 
+        String dir_path = dir.getPath();
+        dir_path = dir_path.replace("\\", "/");
+        expectedJarFile = expectedJarFile.replace("\\", "/");
+
         assertEquals(ZipDir.class, dir.getClass());
-        assertEquals(expectedJarFile, dir.getPath());
+        assertEquals(expectedJarFile, dir_path);
     }
 
     @Test
