@@ -165,7 +165,7 @@ public class VfsTest {
         String dir_path = dir.getPath();
         dir_path = dir_path.replace("\\", "/");
         expectedJarFile = expectedJarFile.replace("\\", "/");
-
+        // temp disable path test
         assertEquals(ZipDir.class, dir.getClass());
 //        assertEquals(expectedJarFile, dir_path);
     }
